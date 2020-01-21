@@ -14,8 +14,8 @@
 
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
-                <p>{{ firstText | reverse }}</p>
-                <p>{{ secondText | calculateLength }}</p>
+                <p>{{ reversed }}</p>
+                <p>{{ lengthAware }}</p>
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
@@ -35,6 +35,14 @@
         filters: {
             reverse(value) {
                 return value.split("").reverse().join("");
+            }
+        },
+        computed: {
+            reversed() {
+                return this.firstText.split("").reverse().join("");
+            },
+            lengthAware() {
+                return this.secondText + '(' + this.secondText.length + ')';
             }
         }
     }
